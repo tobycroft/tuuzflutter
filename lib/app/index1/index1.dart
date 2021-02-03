@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:TuuzFlutter/app/index1/help/help.dart';
+import 'package:TuuzFlutter/app/index1/robot_info/robot_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:TuuzFlutter/app/help/help.dart';
 import 'package:TuuzFlutter/app/login/login.dart';
-import 'package:TuuzFlutter/app/robot_info/robot_info.dart';
 import 'package:TuuzFlutter/config/config.dart';
 import 'package:TuuzFlutter/tuuz/alert/ios.dart';
 import 'package:TuuzFlutter/tuuz/net/net.dart';

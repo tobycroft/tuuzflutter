@@ -1,5 +1,6 @@
+import 'package:TuuzFlutter/app/index1/index1.dart';
+import 'package:TuuzFlutter/app/index4/index4.dart';
 import 'package:flutter/material.dart';
-import 'package:TuuzFlutter/app/index1.dart';
 import 'package:TuuzFlutter/config/auth.dart';
 import 'package:TuuzFlutter/route.dart';
 import 'package:TuuzFlutter/tuuz/storage/storage.dart';
@@ -102,7 +103,7 @@ class BotomeMenumPageState extends State<BotomeMenumPage> {
   ];
 
   //点击导航项是要显示的页面
-  final pages = [Index1("Flutter Start"), ChildItemView("发现"), ChildItemView("动态"), ChildItemView("我的")];
+  final pages = [Index1("首页"), ChildItemView("发现"), ChildItemView("动态"), Index4("我的")];
 
   Widget buildBottomTabScaffold() {
     return Scaffold(
