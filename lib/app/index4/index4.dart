@@ -43,13 +43,15 @@ class _Index4 extends State<Index4> {
       if (json["code"] == 0) {
         _user_info = json["data"];
         setState(() {});
-        print(_user_info);
       } else {
         Alert().Error(context, json["data"], () {});
       }
     } else {
       setState(() {
-        _user_info = {};
+        _user_info = {
+          "uname": "请先登录",
+          "qq": "",
+        };
       });
     }
   }
@@ -68,7 +70,9 @@ class _Index4 extends State<Index4> {
       }
     } else {
       setState(() {
-        _user_balance = {};
+        _user_balance = {
+          "balance": 0,
+        };
       });
     }
   }
@@ -113,7 +117,7 @@ class _Index4 extends State<Index4> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 50),
+                  padding: EdgeInsets.only(left: 50),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,11 +136,17 @@ class _Index4 extends State<Index4> {
                     ],
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(right: 20),
-                  alignment: Alignment.centerRight,
-                  child: Icon(Icons.keyboard_arrow_right),
-                )
+                FlatButton(
+                  onPressed: () {
+                    print(Auth().Is_login);
+                    print("aaa");
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(right: 20),
+                    alignment: Alignment.centerRight,
+                    child: Icon(Icons.keyboard_arrow_right),
+                  ),
+                ),
               ],
             ),
           ),
