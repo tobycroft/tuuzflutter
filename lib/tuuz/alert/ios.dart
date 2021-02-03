@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterstart/tuuz/win/close.dart';
+import 'package:TuuzFlutter/tuuz/win/close.dart';
 
 class Alert {
   All(BuildContext context, String title, String content, List<Widget> ButtonBuilder) {

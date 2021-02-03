@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterstart/app/index1.dart';
-import 'package:flutterstart/config/auth.dart';
-import 'package:flutterstart/route.dart';
-import 'package:flutterstart/tuuz/storage/storage.dart';
+import 'package:TuuzFlutter/app/index1.dart';
+import 'package:TuuzFlutter/config/auth.dart';
+import 'package:TuuzFlutter/route.dart';
+import 'package:TuuzFlutter/tuuz/storage/storage.dart';
 
 void main() {
   Init().init();

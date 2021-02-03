@@ -2,15 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterstart/app/login/help/help.dart';
-import 'package:flutterstart/config/auth.dart';
-import 'package:flutterstart/config/config.dart';
-import 'package:flutterstart/config/res.dart';
-import 'package:flutterstart/tuuz/alert/ios.dart';
-import 'package:flutterstart/tuuz/button/button.dart';
-import 'package:flutterstart/tuuz/net/net.dart';
-import 'package:flutterstart/tuuz/storage/storage.dart';
-import 'package:flutterstart/tuuz/win/close.dart';
+import 'package:TuuzFlutter/app/login/help/help.dart';
+import 'package:TuuzFlutter/config/auth.dart';
+import 'package:TuuzFlutter/config/config.dart';
+import 'package:TuuzFlutter/config/res.dart';
+import 'package:TuuzFlutter/tuuz/alert/ios.dart';
+import 'package:TuuzFlutter/tuuz/button/button.dart';
+import 'package:TuuzFlutter/tuuz/net/net.dart';
+import 'package:TuuzFlutter/tuuz/storage/storage.dart';
+import 'package:TuuzFlutter/tuuz/win/close.dart';
 
 class Login extends StatefulWidget {
   @override

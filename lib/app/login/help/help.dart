@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterstart/config/config.dart';
+import 'package:TuuzFlutter/config/config.dart';
 
 class Help extends StatefulWidget {
   @override

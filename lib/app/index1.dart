@@ -4,15 +4,15 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:flutterstart/app/help/help.dart';
-import 'package:flutterstart/app/login/login.dart';
-import 'package:flutterstart/app/robot_info/robot_info.dart';
-import 'package:flutterstart/config/config.dart';
-import 'package:flutterstart/tuuz/alert/ios.dart';
-import 'package:flutterstart/tuuz/net/net.dart';
-import 'package:flutterstart/tuuz/popup/popupmenu.dart';
-import 'package:flutterstart/tuuz/storage/storage.dart';
-import 'package:flutterstart/tuuz/win/close.dart';
+import 'package:TuuzFlutter/app/help/help.dart';
+import 'package:TuuzFlutter/app/login/login.dart';
+import 'package:TuuzFlutter/app/robot_info/robot_info.dart';
+import 'package:TuuzFlutter/config/config.dart';
+import 'package:TuuzFlutter/tuuz/alert/ios.dart';
+import 'package:TuuzFlutter/tuuz/net/net.dart';
+import 'package:TuuzFlutter/tuuz/popup/popupmenu.dart';
+import 'package:TuuzFlutter/tuuz/storage/storage.dart';
+import 'package:TuuzFlutter/tuuz/win/close.dart';
 
 class Index1 extends StatefulWidget {
   String _title;
