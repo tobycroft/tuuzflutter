@@ -149,21 +149,6 @@ class _Index4 extends State<Index4> {
               ],
             ),
           ),
-          Column(
-            children: [
-              ListTile(
-                leading: Icon(
-                  Icons.account_balance_wallet,
-                  size: 48,
-                ),
-                title: Text("积分"),
-                subtitle: Text(_user_balance["balance"].toString()),
-                onTap: () {
-                  Windows().Open(context, Balance_record("积分记录"));
-                },
-              ),
-            ],
-          ),
           GridView.count(
               padding: EdgeInsets.all(0),
               physics: new NeverScrollableScrollPhysics(),
@@ -174,7 +159,7 @@ class _Index4 extends State<Index4> {
               children: <Widget>[
                 Container(
                   width: 100,
-                  color: Colors.grey,
+                  color: Colors.deepPurpleAccent,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -183,7 +168,7 @@ class _Index4 extends State<Index4> {
                         size: 80,
                       ),
                       Text(
-                        "设定",
+                        "编写中",
                         style: Config().Text_Style_default,
                       )
                     ],
@@ -192,14 +177,56 @@ class _Index4 extends State<Index4> {
                 Container(
                   width: 100,
                   color: Colors.green,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.restore_page,
+                        size: 80,
+                      ),
+                      Text(
+                        "编写中",
+                        style: Config().Text_Style_default,
+                      )
+                    ],
+                  ),
                 ),
                 Container(
                   width: 100,
                   color: Colors.red,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.restore_page,
+                        size: 80,
+                      ),
+                      Text(
+                        "编写中",
+                        style: Config().Text_Style_default,
+                      )
+                    ],
+                  ),
                 ),
               ]),
+          Column(
+            children: [
+              ListTile(
+                leading: Icon(
+                  Icons.account_balance_wallet,
+                  color: Colors.black,
+                  size: 48,
+                ),
+                trailing: Icon(Icons.keyboard_arrow_right),
+                title: Text("积分"),
+                subtitle: Text(_user_balance["balance"].toString()),
+                onTap: () {
+                  Windows().Open(context, Balance_record("积分记录"));
+                },
+              ),
+            ],
+          ),
           Container(
-            height: 600,
             color: Colors.blueGrey,
           ),
         ],

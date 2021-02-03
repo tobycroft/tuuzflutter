@@ -119,6 +119,7 @@ class _Index1 extends State<Index1> {
         ],
       ),
       body: EasyRefresh(
+        scrollController: null,
         child: ListView.builder(
           itemBuilder: (BuildContext con, int index) => BotItem(this.context, bot_datas[index]),
           itemCount: bot_datas.length,
