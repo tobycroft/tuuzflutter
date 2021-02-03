@@ -30,12 +30,12 @@ class Alert {
             ));
   }
 
-  Error(BuildContext context, String content, VoidCallback on_press) {
+  Error(BuildContext context, String error_text, VoidCallback on_press) {
     showCupertinoDialog(
         context: context,
         builder: (context) => new CupertinoAlertDialog(
               title: Text("错误"),
-              content: Text(content),
+              content: Text(error_text),
               actions: <Widget>[
                 CupertinoButton(
                     onPressed: () {
