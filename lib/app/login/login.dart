@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:TuuzFlutter/config/url.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:TuuzFlutter/app/login/help/help.dart';
@@ -196,7 +197,7 @@ class _login extends State<Login> {
                     "qq": this.qq,
                     "password": this.password,
                   };
-                  String ret = await Net().Post(Config().Url, "/v1/index/login/login", null, post, null);
+                  String ret = await Net().Post(Config().Url, Url().login, null, post, null);
                   var json = jsonDecode(ret);
                   if (json["code"] == 0) {
                     Storage().Set("__uid__", json["data"]["uid"].toString());

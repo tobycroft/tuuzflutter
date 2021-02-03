@@ -14,9 +14,6 @@ import 'package:TuuzFlutter/app/login/login.dart';
 import 'package:TuuzFlutter/config/config.dart';
 import 'package:TuuzFlutter/tuuz/alert/ios.dart';
 import 'package:TuuzFlutter/tuuz/net/net.dart';
-import 'package:TuuzFlutter/tuuz/popup/popupmenu.dart';
-import 'package:TuuzFlutter/tuuz/storage/storage.dart';
-import 'package:TuuzFlutter/tuuz/win/close.dart';
 
 class Index4 extends StatefulWidget {
   String _title;
@@ -34,20 +31,35 @@ class _Index4 extends State<Index4> {
 
   @override
   void initState() {
-    get_data();
+    get_user_info();
+    get_user_balance();
     super.initState();
   }
 
   @override
-  Future<void> get_data() async {
+  Future<void> get_user_info() async {
     Map<String, String> post = await AuthAction().LoginObject();
     var ret = await Net().Post(Config().Url, Url().User_info, null, post, null);
     Map json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
       if (json["code"] == 0) {
-        setState(() {
-          User_info = json["data"];
-        });
+        User_info = json["data"];
+        setState(() {});
+        print(User_info);
+      } else {
+        Alert().Error(context, json["data"], () {});
+      }
+    }
+  }
+
+  Future<void> get_user_balance() async {
+    Map<String, String> post = await AuthAction().LoginObject();
+    var ret = await Net().Post(Config().Url, Url().User_info, null, post, null);
+    Map json = jsonDecode(ret);
+    if (Auth().Return_login_check(context, json)) {
+      if (json["code"] == 0) {
+        User_info = json["data"];
+        setState(() {});
         print(User_info);
       } else {
         Alert().Error(context, json["data"], () {});
@@ -56,6 +68,7 @@ class _Index4 extends State<Index4> {
   }
 
   Map User_info = {};
+  Map User_balance = {};
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,6 +128,18 @@ class _Index4 extends State<Index4> {
                 )
               ],
             ),
+          ),
+          Column(
+            children: [
+              ListTile(
+                leading: Icon(
+                  Icons.account_balance_wallet,
+                  size: 48,
+                ),
+                title: Text("积分"),
+                subtitle: Text("123"),
+              ),
+            ],
           ),
           GridView.count(
               padding: EdgeInsets.all(0),
