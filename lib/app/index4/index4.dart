@@ -41,9 +41,9 @@ class _Index4 extends State<Index4> {
     Map json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
       if (json["code"] == 0) {
-        User_info = json["data"];
+        _user_info = json["data"];
         setState(() {});
-        print(User_info);
+        print(_user_info);
       } else {
         Alert().Error(context, json["data"], () {});
       }
@@ -52,21 +52,26 @@ class _Index4 extends State<Index4> {
 
   Future<void> get_user_balance() async {
     Map<String, String> post = await AuthAction().LoginObject();
-    var ret = await Net().Post(Config().Url, Url_Index4().User_info, null, post, null);
+    var ret = await Net().Post(Config().Url, Url_Index4().User_balance, null, post, null);
     Map json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
       if (json["code"] == 0) {
-        User_info = json["data"];
+        _user_balance = json["data"];
         setState(() {});
-        print(User_info);
+        print(_user_info);
       } else {
         Alert().Error(context, json["data"], () {});
       }
     }
   }
 
-  Map User_info = {};
-  Map User_balance = {};
+  Map _user_info = {
+    "uname": "请先登录",
+    "qq": "",
+  };
+  Map _user_balance = {
+    "balance": 0,
+  };
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,14 +111,14 @@ class _Index4 extends State<Index4> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        User_info["uname"].toString(),
+                        _user_info["uname"].toString(),
                         style: Config().Text_style_Name,
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Text(
-                        User_info["qq"].toString(),
+                        _user_info["qq"].toString(),
                         style: Config().Text_style_Name,
                       ),
                     ],
@@ -135,7 +140,7 @@ class _Index4 extends State<Index4> {
                   size: 48,
                 ),
                 title: Text("积分"),
-                subtitle: Text("123"),
+                subtitle: Text(_user_balance["balance"].toString()),
                 onTap: () {
                   Windows().Open(context, Balance_record("余额查询"));
                 },
