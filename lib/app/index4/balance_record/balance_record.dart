@@ -2,16 +2,14 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:TuuzFlutter/app/index4/balance_record/url_balance_record.dart';
-import 'package:TuuzFlutter/app/index4/url_index4.dart';
 import 'package:TuuzFlutter/config/auth.dart';
-import 'package:TuuzFlutter/config/res.dart';
 import 'package:TuuzFlutter/extend/authaction/authaction.dart';
-import 'package:TuuzFlutter/tuuz/win/close.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:TuuzFlutter/config/config.dart';
 import 'package:TuuzFlutter/tuuz/alert/ios.dart';
 import 'package:TuuzFlutter/tuuz/net/net.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class Balance_record extends StatefulWidget {
   String _title;
@@ -36,7 +34,7 @@ class _Balance_record extends State<Balance_record> {
   @override
   Future<void> get_balance_record() async {
     Map<String, String> post = await AuthAction().LoginObject();
-    var ret = await Net().Post(Config().Url, Url_balance_record().User_balance, null, post, null);
+    var ret = await Net().Post(Config().Url, Url_balance_record().User_balance_record, null, post, null);
     Map json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
       if (json["code"] == 0) {
@@ -53,19 +51,66 @@ class _Balance_record extends State<Balance_record> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(this._title),
-        backgroundColor: Colors.black,
-        centerTitle: true,
-        actions: <Widget>[],
-      ),
-      body: ListView(
-        children: [
-          Container(
-            color: Colors.blueGrey,
+        appBar: AppBar(
+          title: Text(this._title),
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          actions: <Widget>[],
+        ),
+        body: EasyRefresh(
+          child: ListView.builder(
+            itemBuilder: (BuildContext con, int index) => BotItem(this.context, _balance_record[index]),
+            itemCount: _balance_record.length,
           ),
-        ],
+          firstRefresh: false,
+          onRefresh: get_balance_record,
+        ));
+  }
+}
+
+class BotItem extends StatelessWidget {
+  var item;
+  var _context;
+
+  BotItem(this._context, this.item);
+
+  Widget _buildTiles(Map ret) {
+    if (ret == null) return ListTile();
+    return ListTile(
+      leading: CircleAvatar(
+        child: Image(image: NetworkImage(ret["img"])),
+      ),
+      title: FlatButton(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              ret["cname"].toString(),
+              style: Config().Text_Style_default,
+            ),
+            Text(
+              ret["bot"].toString(),
+              style: Config().Text_Style_default,
+            )
+          ],
+        ),
+        onPressed: () {
+          //Todo：短按进入机器人信息
+          // Windows().Open(this._context, Robot_info_index(this.item));
+        },
+        onLongPress: () {
+          //Todo：长按弹出菜单
+        },
+      ),
+      trailing: Text(
+        ret["date"].toString(),
+        style: Config().Text_Style_default,
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildTiles(item);
   }
 }

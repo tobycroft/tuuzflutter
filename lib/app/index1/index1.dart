@@ -36,9 +36,6 @@ class _Index1 extends State<Index1> {
 
   @override
   Future<void> get_data() async {
-    // setState(() {
-    //   bot_datas = [];
-    // });
     Map<String, String> post = {};
     post["uid"] = await Storage().Get("__uid__");
     post["token"] = await Storage().Get("__token__");
@@ -73,7 +70,6 @@ class _Index1 extends State<Index1> {
               Tuuz_Popup().MenuItem(Icons.logout, "退出登录", "logout"),
               Tuuz_Popup().MenuItem(Icons.help_center, "首页帮助", "index_help"),
               Tuuz_Popup().MenuItem(Icons.qr_code, "扫码", "scanner"),
-              Tuuz_Popup().MenuItem(Icons.zoom_out, "httptest", "httptest"),
             ],
             onSelected: (String value) {
               print(value);
@@ -85,8 +81,10 @@ class _Index1 extends State<Index1> {
                   }
                 case "logout":
                   {
-                    Storage().Delete("__uid__");
-                    Storage().Delete("__token__");
+                    Alert().Simple(context, "是否退出？", "点击确认后退出", () {
+                      Storage().Delete("__uid__");
+                      Storage().Delete("__token__");
+                    });
                     break;
                   }
                 case "index_help":
@@ -98,33 +96,6 @@ class _Index1 extends State<Index1> {
                 case "scanner":
                   {
                     Alert().Simple(context, "扫码测试", "Scanner", () {});
-                    break;
-                  }
-
-                case "httptest":
-                  {
-                    void get_list() async {
-                      setState(() {
-                        bot_datas = [];
-                      });
-                      Map<String, String> post = {};
-                      post["uid"] = await Storage().Get("__uid__");
-                      post["token"] = await Storage().Get("__token__");
-                      var ret = await Net().Post(Config().Url, "/v1/bot/list/owned", null, post, null);
-
-                      var json = jsonDecode(ret);
-                      if (json["code"] == -1) {
-                        Windows().Open(context, Login());
-                      } else if (json["code"] == 0) {
-                        List data = json["data"];
-                        data.forEach((value) {
-                          bot_datas.add(value);
-                        });
-                        setState(() {});
-                      }
-                    }
-
-                    get_list();
                     break;
                   }
 

@@ -142,7 +142,7 @@ class _Index4 extends State<Index4> {
                 title: Text("积分"),
                 subtitle: Text(_user_balance["balance"].toString()),
                 onTap: () {
-                  Windows().Open(context, Balance_record("余额查询"));
+                  Windows().Open(context, Balance_record("积分记录"));
                 },
               ),
             ],

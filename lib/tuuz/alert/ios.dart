@@ -25,7 +25,10 @@ class Alert {
                       Navigator.pop(context);
                     },
                     child: Text("取消")),
-                CupertinoButton(onPressed: onPressed_yes, child: Text("确定")),
+                CupertinoButton(onPressed: (){
+                  onPressed_yes();
+                  Navigator.pop(context);
+                }, child: Text("确定")),
               ],
             ));
   }
