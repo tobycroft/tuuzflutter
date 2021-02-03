@@ -36,9 +36,9 @@ class _Index1 extends State<Index1> {
 
   @override
   Future<void> get_data() async {
-    setState(() {
-      bot_datas = [];
-    });
+    // setState(() {
+    //   bot_datas = [];
+    // });
     Map<String, String> post = {};
     post["uid"] = await Storage().Get("__uid__");
     post["token"] = await Storage().Get("__token__");
@@ -48,11 +48,13 @@ class _Index1 extends State<Index1> {
     if (json["code"] == -1) {
       Windows().Open(context, Login());
     } else if (json["code"] == 0) {
-      List data = json["data"];
-      data.forEach((value) {
-        bot_datas.add(value);
+      setState(() {
+        bot_datas = [];
+        List data = json["data"];
+        data.forEach((value) {
+          bot_datas.add(value);
+        });
       });
-      setState(() {});
     }
   }
 
