@@ -30,6 +30,27 @@ class Alert {
             ));
   }
 
+  Error(BuildContext context, String content, VoidCallback on_press) {
+    showCupertinoDialog(
+        context: context,
+        builder: (context) => new CupertinoAlertDialog(
+              title: Text("错误"),
+              content: Text(content),
+              actions: <Widget>[
+                CupertinoButton(
+                    onPressed: () {
+                      if (on_press == null) {
+                        Windows().Close(context);
+                      } else {
+                        Windows().Close(context);
+                        on_press;
+                      }
+                    },
+                    child: Text("确认")),
+              ],
+            ));
+  }
+
   Confirm(BuildContext context, String title, String content, VoidCallback on_press) {
     showCupertinoDialog(
         context: context,
@@ -41,7 +62,7 @@ class Alert {
                     onPressed: () {
                       if (on_press == null) {
                         Windows().Close(context);
-                      }else{
+                      } else {
                         Windows().Close(context);
                         on_press;
                       }
