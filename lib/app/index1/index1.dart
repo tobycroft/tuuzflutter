@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:TuuzFlutter/app/index1/help/help.dart';
 import 'package:TuuzFlutter/app/index1/robot_info/robot_info.dart';
+import 'package:TuuzFlutter/config/auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
@@ -42,15 +43,23 @@ class _Index1 extends State<Index1> {
     var ret = await Net().Post(Config().Url, "/v1/bot/list/owned", null, post, null);
 
     var json = jsonDecode(ret);
-    if (json["code"] == -1) {
-      Windows().Open(context, Login());
-    } else if (json["code"] == 0) {
+    if (Auth().Return_login_check(context, json)) {
+      if (json["code"] == 0) {
+        setState(() {
+          bot_datas = [];
+          List data = json["data"];
+          data.forEach((value) {
+            bot_datas.add(value);
+          });
+        });
+      } else {
+        setState(() {
+          bot_datas = [];
+        });
+      }
+    } else {
       setState(() {
         bot_datas = [];
-        List data = json["data"];
-        data.forEach((value) {
-          bot_datas.add(value);
-        });
       });
     }
   }
@@ -82,7 +91,7 @@ class _Index1 extends State<Index1> {
                 case "logout":
                   {
                     Alert().Simple(context, "是否退出？", "点击确认后退出", () {
-                      Storage().Delete("__uid__");
+                      // Storage().Delete("__uid__");
                       Storage().Delete("__token__");
                     });
                     break;

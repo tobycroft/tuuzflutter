@@ -47,6 +47,10 @@ class _Index4 extends State<Index4> {
       } else {
         Alert().Error(context, json["data"], () {});
       }
+    } else {
+      setState(() {
+        _user_info = {};
+      });
     }
   }
 
@@ -62,6 +66,10 @@ class _Index4 extends State<Index4> {
       } else {
         Alert().Error(context, json["data"], () {});
       }
+    } else {
+      setState(() {
+        _user_balance = {};
+      });
     }
   }
 
