@@ -1,16 +1,14 @@
 import 'dart:convert';
 import 'dart:ui';
 
-import 'package:TuuzFlutter/app/index1/help/help.dart';
-import 'package:TuuzFlutter/app/index1/robot_info/robot_info.dart';
+import 'package:TuuzFlutter/app/index4/balance_record/balance_record.dart';
+import 'package:TuuzFlutter/app/index4/url_index4.dart';
 import 'package:TuuzFlutter/config/auth.dart';
 import 'package:TuuzFlutter/config/res.dart';
-import 'package:TuuzFlutter/config/url.dart';
 import 'package:TuuzFlutter/extend/authaction/authaction.dart';
+import 'package:TuuzFlutter/tuuz/win/close.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:TuuzFlutter/app/login/login.dart';
 import 'package:TuuzFlutter/config/config.dart';
 import 'package:TuuzFlutter/tuuz/alert/ios.dart';
 import 'package:TuuzFlutter/tuuz/net/net.dart';
@@ -39,7 +37,7 @@ class _Index4 extends State<Index4> {
   @override
   Future<void> get_user_info() async {
     Map<String, String> post = await AuthAction().LoginObject();
-    var ret = await Net().Post(Config().Url, Url().User_info, null, post, null);
+    var ret = await Net().Post(Config().Url, Url_Index4().User_info, null, post, null);
     Map json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
       if (json["code"] == 0) {
@@ -54,7 +52,7 @@ class _Index4 extends State<Index4> {
 
   Future<void> get_user_balance() async {
     Map<String, String> post = await AuthAction().LoginObject();
-    var ret = await Net().Post(Config().Url, Url().User_info, null, post, null);
+    var ret = await Net().Post(Config().Url, Url_Index4().User_info, null, post, null);
     Map json = jsonDecode(ret);
     if (Auth().Return_login_check(context, json)) {
       if (json["code"] == 0) {
@@ -138,6 +136,9 @@ class _Index4 extends State<Index4> {
                 ),
                 title: Text("积分"),
                 subtitle: Text("123"),
+                onTap: () {
+                  Windows().Open(context, Balance_record("余额查询"));
+                },
               ),
             ],
           ),

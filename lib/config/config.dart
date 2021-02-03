@@ -22,5 +22,5 @@ class Config {
 
   String ProxyURL = "http://10.0.0.100:9000";
 
-  String Url = "api.tuuz.cn:15088";
+  String Url = "127.0.0.1";
 }
