@@ -14,14 +14,7 @@ class Init {
   void init() async {}
 
   void is_login() async {
-    if (!await Storage().Has("__uid__")) {
-      Auth().Is_login = false;
-      return;
-    }
-    if (!await Storage().Has("__token__")) {
-      Auth().Is_login = false;
-      return;
-    }
+
   }
 }
 

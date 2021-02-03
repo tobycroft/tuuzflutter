@@ -138,8 +138,7 @@ class _Index4 extends State<Index4> {
                 ),
                 FlatButton(
                   onPressed: () {
-                    print(Auth().Is_login);
-                    print("aaa");
+
                   },
                   child: Container(
                     margin: EdgeInsets.only(right: 20),
