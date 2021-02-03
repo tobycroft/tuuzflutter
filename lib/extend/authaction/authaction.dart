@@ -1,7 +1,7 @@
 import 'package:TuuzFlutter/tuuz/storage/storage.dart';
 import 'package:flutter/material.dart';
 
-class Auth {
+class AuthAction {
   LoginObject() async {
     Map<String, String> post = {};
     post["uid"] = await Storage().Get("__uid__");
