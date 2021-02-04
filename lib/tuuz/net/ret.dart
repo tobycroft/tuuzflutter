@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:gobotq_flutter/tuuz/alert/ios.dart';
+import 'package:TuuzFlutter/tuuz/alert/ios.dart';
 
 class Ret {
   bool Check_isok(BuildContext context, Map json) {

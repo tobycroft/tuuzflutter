@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gobotq_flutter/tuuz/win/close.dart';
+import 'package:TuuzFlutter/tuuz/win/close.dart';
 
 class Tuuz_Button {
   @override

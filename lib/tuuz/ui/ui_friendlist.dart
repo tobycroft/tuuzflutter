@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gobotq_flutter/config/config.dart';
-import 'package:gobotq_flutter/tuuz/win/close.dart';
+import 'package:TuuzFlutter/config/config.dart';
+import 'package:TuuzFlutter/tuuz/win/close.dart';
 
 class UI_Friendlist extends StatelessWidget {
   var _pageparam;
