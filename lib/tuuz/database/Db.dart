@@ -11,7 +11,7 @@ class TuuzDb {
   // Guaranteed to be called only once.
   Future<Database> _initDb() async {
     final db = await openDatabase(
-      "tuuzim.db",
+      "tuuzflutter.db",
       version: 1,
       onCreate: _onCreate,
       onUpgrade: _onUpdate,
