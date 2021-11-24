@@ -1,5 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:tuuzim_flutter/tuuz/database/Db.dart';
+import 'package:TuuzFlutter/tuuz/database/Db.dart';
 
 const String EQ = '=';
 const String NE = '!=';

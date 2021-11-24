@@ -30,11 +30,12 @@ dependencies:
   url_launcher: ^5.7.10
   upgrader: ^2.8.2
   package_info: ^0.4.3+4
-  jpush_flutter: ^0.6.3
+  jpush_flutter: ^2.1.7
   flutter_app_upgrade: ^1.1.0
   permission_handler: ^5.1.0+2
   device_info: ^1.0.0
   r_upgrade: ^0.3.2+3
+  sqflite: ^2.0.0+4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -43,18 +44,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_slidable: ^0.5.7
-  shared_preferences: ^0.5.12+4
-  flutter_easyrefresh: ^2.1.8
-  fluttertoast: ^7.1.6
-  url_launcher: ^5.7.10
-  upgrader: ^2.8.2
-  package_info: ^0.4.3+4
-  jpush_flutter: ^0.6.3
-  flutter_app_upgrade: ^1.1.0
-  permission_handler: ^5.1.0+2
-  device_info: ^1.0.0
-  r_upgrade: ^0.3.2+3
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
