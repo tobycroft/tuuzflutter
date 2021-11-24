@@ -32,7 +32,6 @@ dependencies:
   upgrader: ^3.10.0
   jpush_flutter: ^2.1.7
   package_info: ^2.0.2
-  flutter_app_upgrade: ^1.1.0
   device_info: ^2.0.3
   permission_handler: ^8.3.0
   sqflite: ^2.0.0+4
