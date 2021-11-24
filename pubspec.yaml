@@ -23,19 +23,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_slidable: ^0.5.7
-  shared_preferences: ^0.5.12+4
-  flutter_easyrefresh: ^2.1.8
+
+  flutter_slidable: ^1.1.0
+  shared_preferences: ^2.0.9
+  flutter_easyrefresh: ^2.2.1
   fluttertoast: ^8.0.8
   url_launcher: ^6.0.15
-  upgrader: ^2.8.2
-  package_info: ^0.4.3+4
+  upgrader: ^3.10.0
   jpush_flutter: ^2.1.7
+  package_info: ^2.0.2
   flutter_app_upgrade: ^1.1.0
-  permission_handler: ^5.1.0+2
-  device_info: ^1.0.0
-  r_upgrade: ^0.3.2+3
+  device_info: ^2.0.3
+  permission_handler: ^8.3.0
   sqflite: ^2.0.0+4
+  r_upgrade: ^0.3.6
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
