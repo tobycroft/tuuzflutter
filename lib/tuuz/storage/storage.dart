@@ -1,9 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Storage {
-  Future<String> Get(String key) async {
+  Future<String?> Get(String key) async {
     SharedPreferences share = await SharedPreferences.getInstance();
-    return share.get(key);
+    return share.getString(key);
   }
 
   Future<bool> Set(String key, value) async {
